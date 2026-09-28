@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest Akka ❤️</title>
+    <style>
+        body {
+            background-color: #ffe5ec;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px 20px;
+            border-radius: 25px;
+            box-shadow: 0px 10px 30px rgba(255, 105, 135, 0.25);
+            max-width: 500px;
+            width: 100%;
+            display: none;
+            border: 3px solid #ffb3c1;
+        }
+        .active {
+            display: block;
+        }
+        h2, h1 {
+            color: #d81159;
+            font-size: 24px;
+        }
+        p {
+            color: #660708;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        input {
+            padding: 15px;
+            font-size: 20px;
+            border: 2px solid #ff758c;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            width: 80%;
+            outline: none;
+            letter-spacing: 5px;
+        }
+        button {
+            background-color: #ff758c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            box-shadow: 0px 5px 15px rgba(255, 117, 140, 0.4);
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #d81159;
+            transform: scale(1.05);
+        }
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .gift-box {
+            font-size: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: #fff0f3;
+            padding: 15px 10px;
+            border-radius: 18px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.08);
+            border: 2px solid #ffccd5;
+        }
+        .gift-box span {
+            display: block;
+            font-size: 12px;
+            color: #d81159;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .gift-box:hover {
+            transform: scale(1.1);
+        }
+        .content-section {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background: #fff0f3;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px dashed #ff758c;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+        .back-btn {
+            background-color: #6c757d;
+            margin-top: 15px;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        .letter-box {
+            font-style: italic;
+            color: #590d22;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        ul.reasons-list {
+            padding-left: 20px;
+            color: #590d22;
+        }
+        ul.reasons-list li {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page 1: Lock Screen -->
+    <div class="container active" id="screen-lock">
+        <h2>Enter Our Secret Code 🔐</h2>
+        <p>Type our special password (0207) to unlock your surprise!</p>
+        <input type="password" id="passcode" maxlength="4" placeholder="••••">
+        <br>
+        <button onclick="checkCode()">Unlock ✨</button>
+    </div>
+
+    <!-- Page 2: Main Hub with 6 Gift Boxes -->
+    <div class="container" id="screen-main">
+        <h1>You Unlocked It! 🎉</h1>
+        <p>Blood relation-ah irukarthu mukkiyam illa, manasu la evlo close-a irukom nu dhaan mukkiyam! En favorite non-blood akka-ku intha 6 giftsum unakkaga... 💕</p>
+        
+        <div class="gift-grid">
+            <div class="gift-box" onclick="openSurprise('music-box')">🎵<span>Song</span></div>
+            <div class="gift-box" onclick="openSurprise('letter-box-section')">💌<span>Letter</span></div>
+            <div class="gift-box" onclick="openSurprise('reasons-box')">💖<span>Why You</span></div>
+            <div class="gift-box" onclick="openSurprise('memories-box')">📸<span>Memories</span></div>
+            <div class="gift-box" onclick="openSurprise('open-when-box')">💌<span>Open When</span></div>
+            <div class="gift-box" onclick="openSurprise('special-box')">✨<span>Promise</span></div>
+        </div>
+
+        <!-- Gift 1: Music Player -->
+        <div id="music-box" class="content-section">
+            <h3>🎶 A Special Song For You</h3>
+            <p>Intha paatu kekrapo ellam un nyabagam dhaan varum akka...</p>
+            <div style="text-align: center; margin-top: 15px;">
+                <iframe width="100%" height="180" src="https://www.youtube.com/embed/8eIRNHLEfCA?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px;"></iframe>
+            </div>
+            <button class="back-btn" onclick="goBack()">Back to Gifts</button>
+        </div>
+
+        <!-- Gift 2: Heartfelt Letter -->
+        <div id="letter-box-section" class="content-section">
+            <h3>💌 From Your Thangachi / Thambi</h3>
+            <div class="letter-box">
+                <p>Unga kooda porakkala naalum, unga kooda irukra bond vera level! En life-la enaku kidaicha oru best non-blood akka neenga dhaan. Enkitta ethana per irundhalum, unga care-um love-um romba special. Always stay happy and safe, unkooda naanum eppovum irupen! ❤️</p>
+            </div>
+            <button class="back-btn" onclick="goBack()">Back to Gifts</button>
+        </div>
+
+        <!-- Gift 3: Why You Are The Best -->
+        <div id="reasons-box" class="content-section">
+            <h3>💖 Why You're The Best Non-Blood Akka</h3>
+            <ul class="reasons-list">
+                <li>Sodhapunalum enna thittama purinjikreenga!</li>
+                <li>Blood-la illanaalum, blood relation-ah vida romba close-a paathukreenga.</li>
+                <li>Unkitta ellathaiyum bayamillama share pannalam.</li>
+                <li>En unmaiyaana support system neenga!</li>
+            </ul>
+            <button class="back-btn" onclick="goBack()">Back to Gifts</button>
+        </div>
+
+        <!-- Gift 4: Memories Section -->
+        <div id="memories-box" class="content-section">
+            <h3>📸 Our Special Bond</h3>
+            <p>Namma sandaigal, serthu pesra moments ellame romba precious. Indha bond eppovum এvlove azhaga irukanum! 🌸</p>
+            <div style="background: #ffd1dc; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #880e4f; font-weight: bold; margin-top: 10px;">
+                [ Unga Photo-va inga link panlam ]
+            </div>
+            <button class="back-btn" onclick="goBack()">Back to Gifts</button>
+        </div>
+
+        <!-- Gift 5: Open When Section -->
+        <div id="open-when-box" class="content-section">
+            <h3>💌 Open When Messages</h3>
+            <p><b>When you feel low:</b> "Don't worry akka, evlo problems vandhalum unkooda oru thambi/thangachi irukanu nenaichiko!"</p>
+            <p><b>When you miss me:</b> "Oru call pannu, odane pesalam!"</p>
+            <button class="back-btn" onclick="goBack()">Back to Gifts</button>
+        </div>
+
+        <!-- Gift 6: Special Secure Note -->
+        <div id="special-box" class="content-section">
+            <h3>✨ Forever Safe With You</h3>
+            <p>Unkitta pesunale oru safe feeling kidaikum. Enkitta ethana friends/relations irundhalum unga sthanam verathan! 🫂💖</p>
+            <button class="back-btn" onclick="goBack()">Back to Gifts</button>
+        </div>
+    </div>
+
+    <script>
+        function checkCode() {
+            let code = document.getElementById('passcode').value;
+            if (code === '0207') {
+                document.getElementById('screen-lock').classList.remove('active');
+                document.getElementById('screen-main').classList.add('active');
+            } else {
+                alert('Wrong Passcode! Try 0207 ❤️');
+            }
+        }
+
+        function openSurprise(sectionId) {
+            document.querySelectorAll('.content-section').forEach(el => el.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function goBack() {
+            document.querySelectorAll('.content-section').forEach(el => el.style.display = 'none');
+        }
+    </script>
+
+</body>
+</html>
